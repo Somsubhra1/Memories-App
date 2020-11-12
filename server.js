@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { config } from "dotenv";
 
+import postRoutes from "./routes/post.js";
+
 config();
 
 const app = express();
@@ -25,6 +27,8 @@ mongoose
   .catch((err) => console.log(`Error connecting to MongoDB ${err.message}`));
 
 app.get("/", (req, res) => res.send("Hello"));
+
+app.use("/posts", postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
