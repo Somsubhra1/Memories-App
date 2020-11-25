@@ -6,6 +6,12 @@ A Simple Memories sharing app built on MERN Stack.
 
 Click [here](https://link) for demo.
 
+## Configuration
+
+Create .env file in root folder. Add the following configurations:
+
+- MongoURI - MongoDB Database URL
+
 ## Installation
 
 ```bash
@@ -22,7 +28,7 @@ $ npm run dev
 # Run server only
 $ npm start
 
-# Run client onky
+# Run client only
 $ npm run client
 ```
 
