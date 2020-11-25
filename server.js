@@ -28,6 +28,8 @@ mongoose
 
 // app.get("/", (req, res) => res.send("Hello"));
 
+app.use("/posts", postRoutes);
+
 // Serve static assets if it's production environment
 if (process.env.NODE_ENV === "production") {
   // Set static folder
@@ -36,8 +38,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-app.use("/posts", postRoutes);
 
 const PORT = process.env.PORT || 5000;
 
