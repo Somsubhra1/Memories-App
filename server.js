@@ -26,7 +26,16 @@ mongoose
   .then(() => console.log("Successfully connected to MongoDB"))
   .catch((err) => console.log(`Error connecting to MongoDB ${err.message}`));
 
-app.get("/", (req, res) => res.send("Hello"));
+// app.get("/", (req, res) => res.send("Hello"));
+
+// Serve static assets if it's production environment
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.use("/posts", postRoutes);
 
