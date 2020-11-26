@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import { deletePost, likePost } from "../../../actions/posts";
 
@@ -39,7 +39,7 @@ const Post = ({ post, setCurrentId }) => {
           size="small"
           onClick={() => setCurrentId(post._id)}
         >
-          <MoreHorizIcon fontSize="default" />
+          <EditIcon fontSize="default" />
         </Button>
       </div>
       <div className={classes.details}>
@@ -62,7 +62,8 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           onClick={() => dispatch(likePost(post._id))}
         >
-          <ThumbUpAltIcon fontSize="small" /> &nbsp; Like &nbsp; {post.likeCount}
+          <ThumbUpAltIcon fontSize="small" /> &nbsp; Like &nbsp;{" "}
+          {post.likeCount}
         </Button>
 
         <Button
